@@ -1,0 +1,35 @@
+.container {
+  background-color: #f1f1fe;
+  min-height: 100vh;
+}
+
+.content {
+  background-color: #f1f1fe;
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  padding: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button {
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.link {
+  color: #f1f1fe;
+  text-decoration: none;
+  text-align: center;
+}

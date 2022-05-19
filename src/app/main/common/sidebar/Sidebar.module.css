@@ -1,0 +1,26 @@
+.container {
+  background-color: #f1f1fe;
+  height: 100%;
+  min-height: 100vh;
+  max-width: max-content;
+  padding-left: 40px;
+  padding-top: 10px;
+  padding-right: 40px;
+}
+
+.hamburguer {
+  background-color: #f1f1fe;
+  margin-top: 20%;
+  max-width: max-content;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.container ul {
+  margin-top: 100px;
+}

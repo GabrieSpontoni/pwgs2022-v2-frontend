@@ -1,0 +1,11 @@
+.container {
+  background-color: red;
+  max-width: 80%;
+  height: max-content;
+  padding-left: 40px;
+  padding-top: 10px;
+  padding-right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
