@@ -22,7 +22,7 @@ export default function ModalSearch({
     setWordToSearch(e.target[0].value);
 
     await axios
-      .get(`http://localhost:3001/isolated-tasks?token=${token}`)
+      .get(`${process.env.BASE_URL}/isolated-tasks?token=${token}`)
       .then((response) => {
         // console.log(response.data.data);
         setIsolatedTasks(response.data.data);
@@ -32,7 +32,7 @@ export default function ModalSearch({
       });
 
     await axios
-      .get(`http://localhost:3001/lists?token=${token}`)
+      .get(`${process.env.BASE_URL}/lists?token=${token}`)
       .then((response) => {
         // console.log(response.data.data);
         setListTasks(response.data.data);

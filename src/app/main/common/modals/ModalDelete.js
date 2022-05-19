@@ -22,7 +22,7 @@ export default function ModalEdit({
         case "tarefas_isoladas":
           await axios
             .delete(
-              `http://localhost:3001/isolated-tasks/${deleteTask.deleteTask.id}`,
+              `${process.env.BASE_URL}/isolated-tasks/${deleteTask.deleteTask.id}`,
               {
                 data: {
                   token: token,
@@ -44,7 +44,7 @@ export default function ModalEdit({
             console.log("delete list task");
 
             axios
-              .delete(`http://localhost:3001/list-tasks`, {
+              .delete(`${process.env.BASE_URL}/list-tasks`, {
                 data: {
                   token: token,
                   id: deleteTask.deleteTask.id,
@@ -63,7 +63,7 @@ export default function ModalEdit({
             console.log("delete list");
             console.log(deleteTask);
             axios
-              .delete(`http://localhost:3001/lists/`, {
+              .delete(`${process.env.BASE_URL}/lists/`, {
                 data: {
                   token: token,
                   id: deleteTask.keyList,

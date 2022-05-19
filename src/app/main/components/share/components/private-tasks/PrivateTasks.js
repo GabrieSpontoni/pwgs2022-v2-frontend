@@ -20,7 +20,7 @@ export default function PrivateTasks() {
     let isMounted = true;
     if (user && !loading) {
       axios
-        .get(`http://localhost:3001/lists?token=${token}`)
+        .get(`${process.env.BASE_URL}/lists?token=${token}`)
         .then(function (response) {
           setAllLists(response.data.data);
           setLoadingLists(false);
@@ -37,7 +37,7 @@ export default function PrivateTasks() {
 
   const handleShare = async (listId) => {
     await axios
-      .put("http://localhost:3001/lists", {
+      .put(`${process.env.BASE_URL}/lists`, {
         token,
         id: listId,
         shared: true,
@@ -49,24 +49,11 @@ export default function PrivateTasks() {
       .catch(() => {
         console.log("Erro ao compartilhar lista!");
       });
-
-    // set(ref(db, "compartilhados/listas/" + listId), {
-    //   dados_lista: allLists[listId],
-    //   dados_usuario: {
-    //     usuario_nome: user.displayName,
-    //     usuario_email: user.email,
-    //     usuario_uid: user.uid,
-    //   },
-    // });
-
-    // update(ref(db, "usuarios/" + user.uid + "/tarefas_listas/" + listId), {
-    //   compartilhada: true,
-    // });
   };
 
   const handleUnshare = async (listId) => {
     await axios
-      .put("http://localhost:3001/lists", {
+      .put("${process.env.BASE_URL}/lists", {
         token,
         id: listId,
         shared: false,
@@ -95,14 +82,6 @@ export default function PrivateTasks() {
     }
   };
 
-  const getColorRow = (status) => {
-    switch (status) {
-      case "nao_concluido":
-        return "table-danger";
-      case "concluido":
-        return "table-success";
-    }
-  };
   return (
     <div>
       {loadingLists && <Spinner />}

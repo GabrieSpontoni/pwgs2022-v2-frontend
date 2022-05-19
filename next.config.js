@@ -7,4 +7,10 @@ module.exports = withPWA({
     skipWaiting: true,
     disable: process.env.NODE_ENV === "development",
   },
+  env: {
+    BASE_URL:
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3001"
+        : "https://pw2022-v2-back-end.herokuapp.com",
+  },
 });

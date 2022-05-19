@@ -104,14 +104,17 @@ export default function ModalEdit({
     switch (path) {
       case "tarefas_isoladas":
         await axios
-          .put(`http://localhost:3001/isolated-tasks/${editTask.editTask.id}`, {
-            token: getCookie("pwgs22Token"),
-            tarefa: form.tarefa,
-            tempo_limite: form.tempo_limite,
+          .put(
+            `${process.env.BASE_URL}/isolated-tasks/${editTask.editTask.id}`,
+            {
+              token: getCookie("pwgs22Token"),
+              tarefa: form.tarefa,
+              tempo_limite: form.tempo_limite,
 
-            status: form.status,
-            tags: colorsIds,
-          })
+              status: form.status,
+              tags: colorsIds,
+            }
+          )
           .then(() => {
             console.log("Tarefa editada com sucesso");
             handleCloseModal();
@@ -123,7 +126,7 @@ export default function ModalEdit({
         break;
       case "tarefas_listas":
         await axios
-          .put(`http://localhost:3001/list-tasks`, {
+          .put(`${process.env.BASE_URL}/list-tasks`, {
             token: getCookie("pwgs22Token"),
             id: editTask.editTask.id,
             tarefa: form.tarefa,

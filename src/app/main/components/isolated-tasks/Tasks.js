@@ -25,7 +25,7 @@ export default function Tasks() {
     const token = getCookie("pwgs22Token");
     if (user && token && !allTasks) {
       axios
-        .get(`http://localhost:3001/isolated-tasks?token=${token}`)
+        .get(`${process.env.BASE_URL}/isolated-tasks?token=${token}`)
         .then(function (response) {
           // handle success
 
@@ -45,7 +45,7 @@ export default function Tasks() {
 
     const token = getCookie("pwgs22Token");
     axios
-      .post(`http://localhost:3001/isolated-tasks`, {
+      .post(`${process.env.BASE_URL}/isolated-tasks`, {
         token: token,
         tarefa: newTask,
         tempo_limite: "-",

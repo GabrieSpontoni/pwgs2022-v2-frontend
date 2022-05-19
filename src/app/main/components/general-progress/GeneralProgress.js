@@ -18,7 +18,7 @@ export default function GeneralProgress() {
   useEffect(() => {
     if (user && !loading) {
       axios
-        .get(`http://localhost:3001/isolated-tasks?token=${token}`)
+        .get(`${process.env.BASE_URL}/isolated-tasks?token=${token}`)
         .then(function (response) {
           setAllTasks(response.data.data);
           setLoadingTasks(false);
@@ -34,7 +34,7 @@ export default function GeneralProgress() {
     let isMounted = true;
     if (user && !loading && isMounted) {
       axios
-        .get(`http://localhost:3001/lists?token=${token}`)
+        .get(`${process.env.BASE_URL}/lists?token=${token}`)
         .then(function (response) {
           setAllLists(response.data.data);
           setLoadingLists(false);

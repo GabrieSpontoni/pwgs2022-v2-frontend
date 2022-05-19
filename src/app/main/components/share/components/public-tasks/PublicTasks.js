@@ -19,7 +19,7 @@ export default function PublicTasks() {
     let isMounted = true;
     if (user && !loading && isMounted) {
       axios
-        .get(`http://localhost:3001/lists?token=${token}&shared=true`)
+        .get(`${process.env.BASE_URL}/lists?token=${token}&shared=true`)
         .then((result) => {
           setAllLists(result.data.data);
           setLoadingLists(false);

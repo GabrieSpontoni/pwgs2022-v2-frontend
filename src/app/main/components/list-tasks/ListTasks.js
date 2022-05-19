@@ -40,7 +40,7 @@ export default function Tasks() {
 
     if (user && !loading && isMounted) {
       axios
-        .get(`http://localhost:3001/lists?token=${token}`)
+        .get(`${process.env.BASE_URL}/lists?token=${token}`)
         .then(function (response) {
           setAllLists(response.data.data);
           setLoadingLists(false);
@@ -72,7 +72,7 @@ export default function Tasks() {
     setLoadingLists(true);
 
     axios
-      .post("http://localhost:3001/lists", {
+      .post(`${process.env.BASE_URL}/lists`, {
         token,
         name: newList,
         shared: false,
@@ -105,7 +105,7 @@ export default function Tasks() {
     setLoadingLists(true);
 
     axios
-      .post("http://localhost:3001/list-tasks", {
+      .post(`${process.env.BASE_URL}/list-tasks`, {
         token,
         listId: newTask.lista_id,
         status: "nao_concluido",
@@ -144,7 +144,7 @@ export default function Tasks() {
     setLoadingLists(true);
 
     axios
-      .put(`http://localhost:3001/lists/`, {
+      .put(`${process.env.BASE_URL}/lists/`, {
         token,
         id,
         name: editList,

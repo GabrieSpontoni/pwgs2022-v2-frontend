@@ -18,7 +18,7 @@ export function AuthProvider(props) {
     const token = getCookie("pwgs22Token");
     if (token) {
       await axios
-        .get("http://localhost:3001/user/me/?token=" + token)
+        .get(`${process.env.BASE_URL}/user/me/?token=` + token)
         .then((res) => {
           setUser(res.data.data);
           setLoading(false);
@@ -45,7 +45,7 @@ export function AuthProvider(props) {
 
   const createUser = async (displayName, email, password) => {
     await axios
-      .post(`http://localhost:3001/register`, {
+      .post(`${process.env.BASE_URL}/register`, {
         name: displayName,
         email: email,
         password: password,
@@ -59,28 +59,11 @@ export function AuthProvider(props) {
         console.log(err);
         setError(err.response.data.message.msg);
       });
-
-    // createUserWithEmailAndPassword(auth, email, password)
-    //   .then(() => {
-    //     updateProfile(auth.currentUser, {
-    //       displayName: displayName,
-    //     })
-    //       .then((usr) => {
-    //         console.log("User profile updated");
-    //         window.location.href = "/isolated-tasks";
-    //       })
-    //       .catch((error) => {
-    //         console.log("Error updating user profile");
-    //       });
-    //   })
-    //   .catch((error) => {
-    //     setError(error);
-    //   });
   };
 
   const loginWithEmailAndPassword = async (email, password) => {
     await axios
-      .post(`http://localhost:3001/login`, {
+      .post(`${process.env.BASE_URL}/login`, {
         email: email,
         password: password,
       })
