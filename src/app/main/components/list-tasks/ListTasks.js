@@ -49,18 +49,6 @@ export default function Tasks() {
           console.log(error);
           setLoadingLists(false);
         });
-      // onValue(
-      //   ref(db, "usuarios/" + user.uid + "/tarefas_listas"),
-      //   (snapshot) => {
-      //     if (snapshot.val()) {
-      //       setAllLists(snapshot.val());
-      //       setLoadingLists(false);
-      //     } else {
-      //       setAllLists(null);
-      //       setLoadingLists(false);
-      //     }
-      //   }
-      // );
     }
     return () => {
       isMounted = false;
@@ -86,18 +74,6 @@ export default function Tasks() {
         setLoadingLists(false);
       });
 
-    // const db = getDatabase();
-    // const listTasksRef = ref(db, "usuarios/" + user.uid + "/tarefas_listas");
-    // const newListTasksRef = push(listTasksRef);
-    // set(newListTasksRef, {
-    //   nome: newList,
-    // })
-    //   .then(() => {
-    //     document.getElementById("newList").value = "";
-    //   })
-    //   .catch(() => {
-    //     console.log("erro");
-    //   });
     e.preventDefault();
   };
 

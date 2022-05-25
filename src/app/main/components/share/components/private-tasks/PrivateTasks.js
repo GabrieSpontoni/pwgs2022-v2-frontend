@@ -53,7 +53,7 @@ export default function PrivateTasks() {
 
   const handleUnshare = async (listId) => {
     await axios
-      .put("${process.env.BASE_URL}/lists", {
+      .put(`${process.env.BASE_URL}/lists`, {
         token,
         id: listId,
         shared: false,

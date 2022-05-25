@@ -31,19 +31,10 @@ export function AuthProvider(props) {
       setUser(null);
       setLoading(false);
     }
-
-    // onAuthStateChanged(auth, (usr) => {
-    //   if (usr && usr.displayName) {
-    //     setUser(usr);
-    //     setLoading(false);
-    //   } else {
-    //     setUser(null);
-    //     setLoading(false);
-    //   }
-    // });
   }, [setUser]);
 
   const createUser = async (displayName, email, password) => {
+    setLoading(true);
     await axios
       .post(`${process.env.BASE_URL}/register`, {
         name: displayName,
@@ -58,10 +49,12 @@ export function AuthProvider(props) {
       .catch((err) => {
         console.log(err);
         setError(err.response.data.message.msg);
+        setLoading(false);
       });
   };
 
   const loginWithEmailAndPassword = async (email, password) => {
+    setLoading(true);
     await axios
       .post(`${process.env.BASE_URL}/login`, {
         email: email,
@@ -70,11 +63,12 @@ export function AuthProvider(props) {
       .then((res) => {
         setUser(res.data.user);
         setCookies("pwgs22Token", res.data.user.token);
-        setLoading(false);
+        window.location.href = "/isolated-tasks";
       })
       .catch((err) => {
         console.log(err);
         setError("Usuário ou senha inválidos");
+        setLoading(false);
       });
   };
 

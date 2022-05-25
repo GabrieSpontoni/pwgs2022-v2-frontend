@@ -1,6 +1,8 @@
+import { useEffect } from "react";
+
+import Spinner from "../src/app/main/common/spinner/Spinner";
 import LoginForm from "../src/app/main/login/LoginForm";
 import useAuth from "../src/hook/auth";
-import { useEffect } from "react";
 
 export default function Login() {
   const { user, loading } = useAuth();
@@ -9,5 +11,10 @@ export default function Login() {
       window.location.href = "/isolated-tasks";
     }
   });
-  return <LoginForm />;
+  return (
+    <div>
+      {loading && <Spinner />}
+      {!loading && <LoginForm />}
+    </div>
+  );
 }

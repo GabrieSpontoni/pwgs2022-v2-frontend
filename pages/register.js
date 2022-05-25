@@ -1,6 +1,8 @@
+import { useEffect } from "react";
+
+import Spinner from "../src/app/main/common/spinner/Spinner";
 import RegisterForm from "../src/app/main/register/RegisterForm";
 import useAuth from "../src/hook/auth";
-import { useEffect } from "react";
 
 export default function Register() {
   const { user, loading } = useAuth();
@@ -9,5 +11,10 @@ export default function Register() {
       window.location.href = "/isolated-tasks";
     }
   });
-  return <RegisterForm />;
+  return (
+    <div>
+      {loading && <Spinner />}
+      {!loading && <RegisterForm />}
+    </div>
+  );
 }

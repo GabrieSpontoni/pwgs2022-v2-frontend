@@ -28,18 +28,6 @@ export default function PublicTasks() {
           console.log(e);
           setLoadingLists(false);
         });
-
-      // onValue(ref(db, "compartilhados/listas/"), (snapshot) => {
-      //   if (isMounted) {
-      //     if (snapshot.val()) {
-      //       setAllLists(snapshot.val());
-      //       setLoadingLists(false);
-      //     } else {
-      //       setAllLists(null);
-      //       setLoadingLists(false);
-      //     }
-      //   }
-      // });
     }
     return () => {
       isMounted = false;
@@ -61,14 +49,6 @@ export default function PublicTasks() {
     }
   };
 
-  const getColorRow = (status) => {
-    switch (status) {
-      case "nao_concluido":
-        return "table-danger";
-      case "concluido":
-        return "table-success";
-    }
-  };
   return (
     <div>
       {loadingLists && <Spinner />}
