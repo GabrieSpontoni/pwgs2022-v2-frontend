@@ -38,25 +38,6 @@ export default function ModalEdit({
         tags: editTask.editTask.Tags,
         status: editTask.editTask.status,
       });
-
-      // switch (path) {
-      //   case "tarefas_isoladas":
-      //     setForm({
-      //       tarefa: editTask.editTask.tarefa,
-      //       tempo_limite: editTask.editTask.tempo_limite,
-      //       tags: editTask.editTask.tags,
-      //       status: editTask.editTask.status,
-      //     });
-      //     break;
-      //   case "tarefas_listas":
-      //     console.log("entrou");
-      //     setForm({
-      //       tarefa: editTask.editTask.tarefa,
-      //       tempo_limite: editTask.editTask.tempo_limite,
-      //       tags: editTask.editTask.tags,
-      //       status: editTask.editTask.status,
-      //     });
-      // }
     }
   }, [editTask]);
 
@@ -100,6 +81,7 @@ export default function ModalEdit({
         }
       });
     }
+    console.log(form);
 
     switch (path) {
       case "tarefas_isoladas":
@@ -146,28 +128,7 @@ export default function ModalEdit({
       default:
         break;
     }
-
-    //   update(ref(db), updates)
-    //     .then(() => {
-    //       handleCloseModal();
-    //     })
-    //     .catch(() => {
-    //       console.log("erro");
-    //     });
-    // }
   };
-
-  // const getPath = () => {
-  //   switch (path) {
-  //     case "tarefas_isoladas":
-  //       return editTask.editTask.tarefa;
-
-  //     case "tarefas_listas":
-  //       return editTask.editTask.tarefa;
-  //     default:
-  //       return "";
-  //   }
-  // };
 
   const getColorBtn = (color) => {
     switch (color) {
@@ -298,12 +259,18 @@ export default function ModalEdit({
                   controlId="exampleForm.ControlInput1"
                 >
                   <Form.Label>Status</Form.Label>
-                  <Form.Control
-                    defaultValue={editTask.editTask.status}
+                  <Form.Check
+                    type="switch"
+                    id="custom-switch"
+                    label="Tarefa concluída"
+                    checked={form.status === "concluido" ? true : false}
                     onChange={(e) => {
+                      console.log(e.target.checked);
                       setForm({
                         ...form,
-                        status: e.target.value,
+                        status: e.target.checked
+                          ? "concluido"
+                          : "nao_concluido",
                       });
                     }}
                   />

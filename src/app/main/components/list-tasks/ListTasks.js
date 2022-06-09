@@ -137,23 +137,6 @@ export default function Tasks() {
         console.log(e);
         setLoadingLists(false);
       });
-    // const db = getDatabase();
-    // const listTasksRef = ref(
-    //   db,
-    //   "usuarios/" + user.uid + "/tarefas_listas/" + key
-    // );
-    // update(listTasksRef, {
-    //   nome: editList,
-    // })
-    //   .then(() => {
-    //     setIsForEditList({
-    //       isForEditList: false,
-    //       listId: "",
-    //     });
-    //   })
-    //   .catch(() => {
-    //     console.log("erro");
-    //   });
     e.preventDefault();
   };
 

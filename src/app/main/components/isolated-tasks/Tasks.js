@@ -196,54 +196,6 @@ export default function Tasks() {
                       );
                     })}
                 </tbody>
-
-                {/* <tbody>
-                  {allTasks &&
-                    Object.keys(allTasks).map((key) => {
-                      return (
-                        <tr key={key}>
-                          <td>{allTasks[key].tarefa}</td>
-                          <td>{allTasks[key].tempo_limite}</td>
-                          <td>
-                            {allTasks[key].tags.map((tag, index) => {
-                              return (
-                                <span
-                                  key={index}
-                                  className={getColorBtn(tag.cor)}
-                                  style={{
-                                    marginRight: "5px",
-                                  }}
-                                >
-                                  {tag.cor}
-                                </span>
-                              );
-                            })}
-                          </td>
-                          <td>{allTasks[key].status}</td>
-                          <td>
-                            <button
-                              onClick={() => {
-                                handleShowModal(allTasks[key], key);
-                              }}
-                              type="button"
-                              className="btn btn-warning"
-                            >
-                              <FontAwesomeIcon icon={faPenToSquare} />
-                            </button>{" "}
-                            <button
-                              onClick={() => {
-                                handleShowModalDelete(allTasks[key], key);
-                              }}
-                              type="button"
-                              className="btn btn-danger"
-                            >
-                              <FontAwesomeIcon icon={faDeleteLeft} />
-                            </button>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                </tbody> */}
               </table>
             </div>
           </div>
