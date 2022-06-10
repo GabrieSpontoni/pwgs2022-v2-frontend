@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Offcanvas } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 import useAuth from "../../../../hook/auth";
 import ModalSearch from "./components/ModalSearch";
@@ -79,33 +80,28 @@ export default function Sidebar() {
         <Offcanvas.Body>
           <ul className="nav flex-column">
             <li className="nav-item">
-              <a
-                className="nav-link active"
-                aria-current="page"
-                href="/isolated-tasks"
-              >
-                Tarefas isoladas
-              </a>
+              <Link href="/isolated-tasks">
+                <a className="nav-link">Tarefas isoladas</a>
+              </Link>
             </li>
             <hr />
             <li className="nav-item">
-              <a className="nav-link" href="/list-tasks">
-                Lista de tarefas
-              </a>
+              <Link href="/list-tasks">
+                <a className="nav-link">Lista de tarefas</a>
+              </Link>
             </li>
             <hr />
             <li className="nav-item">
-              <a className="nav-link" href="/general-progress">
-                Andamento geral
-              </a>
+              <Link href="/general-progress">
+                <a className="nav-link">Andamento geral</a>
+              </Link>
             </li>
             <hr />
             <li className="nav-item">
-              <a className="nav-link" href="/share">
-                Compartilhar
-              </a>
+              <Link href="/share">
+                <a className="nav-link">Compartilhar</a>
+              </Link>
             </li>
-
             <hr />
           </ul>
         </Offcanvas.Body>

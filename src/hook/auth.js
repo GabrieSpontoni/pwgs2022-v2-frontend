@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
+import { useRouter } from "next/router";
 
 import axios from "axios";
 import { setCookies, getCookie, removeCookies } from "cookies-next";
@@ -10,6 +11,7 @@ export default function useAuth() {
 }
 
 export function AuthProvider(props) {
+  const router = useRouter();
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -44,7 +46,7 @@ export function AuthProvider(props) {
       .then((res) => {
         setUser(res.data.user);
         setCookies("pwgs22Token", res.data.user.token);
-        window.location.href = "/isolated-tasks";
+        router.push("/isolated-tasks");
       })
       .catch((err) => {
         console.log(err);
@@ -63,7 +65,7 @@ export function AuthProvider(props) {
       .then((res) => {
         setUser(res.data.user);
         setCookies("pwgs22Token", res.data.user.token);
-        window.location.href = "/isolated-tasks";
+        router.push("/isolated-tasks");
       })
       .catch((err) => {
         console.log(err);
